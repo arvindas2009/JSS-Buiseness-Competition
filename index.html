@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body>
+    <nav
+      class="navbar"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="1200"
+    >
+      <button class="nav-toggle" aria-label="Open navigation">
+        <span></span>
+      </button>
+      <ul>
+        <li><a href="">HOME</a></li>
+        <li><a href="">PRODUCT</a></li>
+        <li><a href="">TEAM</a></li>
+        <li><a href="">CONTACT</a></li>
+      </ul>
+    </nav>
+    <script>
+      // Hamburger menu toggle for mobile
+      document.querySelector(".nav-toggle").onclick = function () {
+        document.querySelector(".navbar ul").classList.toggle("open");
+      };
+      // Optional: close menu when clicking a link (mobile UX)
+      document.querySelectorAll(".navbar ul a").forEach(function (link) {
+        link.onclick = function () {
+          document.querySelector(".navbar ul").classList.remove("open");
+        };
+      });
+    </script>
+    <section class="home">
+      <img
+        src="IMG/Logo.png"
+        alt=""
+        class="logo logo-home"
+        data-aos="zoom-in-up"
+        data-aos-duration="400"
+      />
+      <img
+        src="IMG/School.png"
+        alt=""
+        class="school"
+        data-aos="fade-up"
+        data-aos-easing="ease-in"
+        data-aos-duration="1200"
+      />
+      <h1 data-aos="zoom-in-down" data-aos-duration="300">OPTICIOUS</h1>
+      <h2 data-aos="fade-up" data-aos-duration="1200" data-aos-easing="ease-in">
+        EXPLORE THE WORLD WITH A CLEAR VISION
+      </h2>
+    </section>
+
+    <section class="about">
+      <h1 data-aos="fade-up" data-aos-duration="600">PRODUCT</h1>
+      <div class="about-content" data-aos="fade-up" data-aos-dure="600">
+        <p>
+          Opticious Glasses are AI-powered, sustainable smart glasses designed
+          to naturally restore your vision — no surgery, no side effects. Built
+          with biodegradable frames and adaptive fiber lenses, Opticious adjusts
+          its focal length in real-time through our smart app, helping reduce
+          your eye power to zero within 6–12 months. Unlike traditional eyewear
+          that only corrects vision temporarily, Opticious actively trains your
+          eyes to heal themselves, offering a smart, eco-friendly, and long-term
+          alternative to laser surgery. With features like an AI custom frame
+          builder, real-time vision tracking, and intelligent comfort
+          optimization, Opticious isn’t just eyewear — it’s the future of eye
+          care.
+        </p>
+      </div>
+
+      <!-- two info boxes side-by-side -->
+      <div class="info-row" data-aos="zoom-in-up" data-aos-duration="600">
+        <div class="info-box">
+          <h3>What does it do?</h3>
+          <p>
+            Opticious actively trains your eyes to heal themselves, offering a
+            smart, eco-friendly, and long-term alternative to laser surgery.
+          </p>
+        </div>
+        <div class="info-box">
+          <h3>Advanced Features</h3>
+          <p>
+            With features like an AI custom frame builder, real-time vision
+            tracking, and intelligent comfort optimization, Opticious isn’t just
+            eyewear — it’s the future of eye care.
+          </p>
+        </div>
+      </div>
+
+      <h1 class="question q1" data-aos="zoom-in-left" data-aos-duration="200">
+        ?
+      </h1>
+      <h1 class="question q2" data-aos="zoom-in-right" data-aos-duration="200">
+        ?
+      </h1>
+      <img src="IMG/Glass.png" alt="" />
+    </section>
+
+    <section class="problem">
+      <div class="problem-grid">
+        <div
+          class="problem-content problem-1"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
+        >
+          <div>
+            <h1>Rising Vision Problems</h1>
+            <p>
+              Over 2.2 billion people worldwide have vision impairment, and 1 in
+              3 teenagers now rely on corrective eyewear due to excessive screen
+              exposure and poor eye health.
+            </p>
+          </div>
+        </div>
+        <div
+          class="problem-content problem-2 problem-last"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
+        >
+          <div>
+            <h1>Traditional Glasses don't Heal</h1>
+            <p>
+              Traditional glasses don’t heal — they only correct temporarily:
+              Regular eyewear simply compensates for weak vision instead of
+              improving it. The eye becomes dependent, leading to worsening
+              power over time.
+            </p>
+          </div>
+        </div>
+        <div
+          class="problem-content problem-3"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
+        >
+          <h1>Laser surgery isn’t for everyone</h1>
+          <p>
+            While laser surgery can restore vision, it’s expensive, invasive,
+            and not suitable for every eye type — especially those with corneal
+            or medical limitations.
+          </p>
+        </div>
+        <div
+          class="problem-content problem-4 problem-last"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
+        >
+          <h1>Sustainability gap:</h1>
+          <p>
+            The eyewear industry produces millions of tons of plastic waste
+            every year. Frames are made of non-biodegradable materials,
+            contributing to environmental pollution.
+          </p>
+        </div>
+        <div
+          class="problem-content problem-5"
+          data-aos="fade-up"
+          data-aos-duration="600"
+          data-aos-easing="ease-out"
+        >
+          <h1>Lack of personalization:</h1>
+          <p>
+            Traditional eyewear offers limited customization — users have to
+            adapt to their glasses, not the other way around.
+          </p>
+        </div>
+      </div>
+
+      <h1 class="problems-heading" data-aos="fade-up" data-aos-duration="400">
+        PROBLEMS
+      </h1>
+    </section>
+    <section class="product">
+      <div class="glasses-small"></div>
+      <h1 class="product-h1" data-aos="fade-up">PRODUCT</h1>
+      <img src="IMG/Glass.png" alt="" class="product-img" />
+      <div class="product-div" data-aos="fade-up" data-aos-duration="600">
+        <p>
+          Opticious Glasses are AI-powered smart eyewear that automatically
+          adjust their lenses in real time to correct vision and help naturally
+          improve eyesight within months. Connected to the Opticious App via
+          Bluetooth, they track eye health, screen time, and habits while
+          offering personalized improvement plans. Built with adaptive fiber
+          lenses, sustainable biodegradable frames, and long-lasting lithium
+          batteries, they combine innovation with eco-friendliness. The glasses
+          include features like blue light and UV protection, an AI custom frame
+          builder for personalized design, a 24×7 virtual eye-care assistant,
+          and real-time cloud-based vision monitoring — delivering comfort,
+          intelligence, and style in one pair.
+        </p>
+      </div>
+      <!-- Timeline Section -->
+      <section class="timeline-section">
+        <h1 class="timeline-heading" data-aos="fade-up" data-aos-duration="600">
+          OUR JOURNEY
+        </h1>
+        <div class="timeline">
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>Smart Vision Assessment:</h2>
+              <p>
+                When a user first gets their Opticious Glasses, the companion
+                Opticious App performs an AI-powered eye test. It analyzes
+                vision patterns, eye strain, and focusing ability in real-time
+                using adaptive algorithms.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>Personalized Calibration:</h2>
+              <p>
+                The glasses feature adaptive fiber lenses whose focal length
+                automatically adjusts based on the user’s needs. This is
+                controlled through micro-sensors and AI calibration from the
+                app, ensuring crystal-clear focus at all times.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>Continuous Vision Training:</h2>
+              <p>
+                As the user wears the glasses, the AI system gradually optimizes
+                and trains the eye muscles by slightly adjusting focus levels
+                over time. This natural process helps reduce eye power steadily
+                within 6–12 months.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>Sustainable Energy System:</h2>
+              <p>
+                The glasses are powered by a miniature lithium-ion battery,
+                similar to those used in earbuds. One 3–4 hour charge lasts an
+                entire week, ensuring smooth operation with minimal
+                environmental impact.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>AI Frame Customization:</h2>
+              <p>
+                Users can design frames through the AI Custom Frame Builder,
+                which scans facial features to recommend frame shapes that are
+                ergonomic, stylish, and biodegradable — aligning with both
+                comfort and sustainability.
+              </p>
+            </div>
+          </div>
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="600"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h2>Real-Time Monitoring & Updates:</h2>
+              <p>
+                The Opticious App tracks eye health, usage hours, and vision
+                improvement, sending personalized feedback and reminders —
+                making it a complete AI-driven eye care ecosystem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="team">
+      <h1 class="team-heading" data-aos="fade-up" data-aos-duration="400">
+        OUR TEAM
+      </h1>
+      <div class="team-members">
+        <div class="team-member" data-aos="zoom-in" data-aos-duration="600">
+          <img src="IMG/member1.jpg" alt="Member 1" class="team-photo" />
+          <div class="team-name">Member Name 1</div>
+        </div>
+        <div
+          class="team-member"
+          data-aos="zoom-in"
+          data-aos-duration="600"
+          data-aos-delay="100"
+        >
+          <img src="IMG/member2.jpg" alt="Member 2" class="team-photo" />
+          <div class="team-name">Member Name 2</div>
+        </div>
+        <div
+          class="team-member"
+          data-aos="zoom-in"
+          data-aos-duration="600"
+          data-aos-delay="200"
+        >
+          <img src="IMG/member3.jpg" alt="Member 3" class="team-photo" />
+          <div class="team-name">Member Name 3</div>
+        </div>
+        <div
+          class="team-member"
+          data-aos="zoom-in"
+          data-aos-duration="600"
+          data-aos-delay="300"
+        >
+          <img src="IMG/member4.jpg" alt="Member 4" class="team-photo" />
+          <div class="team-name">Member Name 4</div>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT: Instagram only -->
+    <section class="contact-instagram">
+      <div class="contact-inner" data-aos="fade-up">
+        <!-- Inline Instagram SVG icon -->
+        <a
+          href="https://instagram.com/yourhandle"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="ig-link"
+          aria-label="Visit our Instagram @yourhandle"
+        >
+          <svg
+            class="ig-icon"
+            viewBox="0 0 512 512"
+            role="img"
+            aria-labelledby="ig-title"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <title id="ig-title">Instagram — @yourhandle</title>
+            <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%">
+              <stop offset="0%" stop-color="#feda75" />
+              <stop offset="50%" stop-color="#d62976" />
+              <stop offset="100%" stop-color="#8134af" />
+            </linearGradient>
+            <rect
+              x="0"
+              y="0"
+              width="512"
+              height="512"
+              rx="96"
+              ry="96"
+              fill="url(#g1)"
+            />
+            <!-- inner white rounded-square (stroke only) to frame the camera circle -->
+            <rect
+              x="108"
+              y="94"
+              width="300"
+              height="300"
+              rx="64"
+              ry="64"
+              fill="none"
+              stroke="#fff"
+              stroke-width="40"
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              opacity="0.95"
+            />
+            <path
+              d="M349 170a24 24 0 1 0-24-24 24 24 0 0 0 24 24z"
+              fill="#fff"
+              opacity="0.95"
+            />
+            <path
+              d="M256 176a80 80 0 1 0 80 80 80 80 0 0 0-80-80zm0 128a48 48 0 1 1 48-48 48 48 0 0 1-48 48z"
+              fill="#fff"
+              opacity="0.95"
+            />
+          </svg>
+          <div class="ig-handle">@yourhandle</div>
+        </a>
+        <p class="ig-desc">
+          Follow us on Instagram for product updates, launches and
+          behind-the-scenes.
+        </p>
+      </div>
+    </section>
+
+    <!-- Promotional split section: left sample image holder + right large promo text -->
+    <section class="promo">
+      <div class="promo-inner">
+        <div class="promo-left" data-aos="zoom-in" data-aos-duration="600">
+          <div class="image-card">
+            <h3>Order Summary</h3>
+            <div class="order-sample">
+              <!-- sample image holder (replace IMG/Graph.webp with final artwork) -->
+              <img src="IMG/Code.png" alt="Sample order summary" />
+            </div>
+          </div>
+        </div>
+        <div class="promo-right" data-aos="fade-left" data-aos-duration="800">
+          <img src="IMG/noon-2.svg" alt="Brand" class="promo-brand" />
+          <h1>
+            USE CODE
+            <span class="promo-code">"OPTICIOUS"</span>
+            FOR 10% OFF
+          </h1>
+          <p class="promo-note">
+            Follow us on our store for limited-time offers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

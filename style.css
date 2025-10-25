@@ -1,0 +1,1237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* prevent elements from growing past widths */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "Extenda Hecto Trial"; /* Choose a descriptive name for your font */
+  src: url("FONT/Extenda-40-Hecto-trial.ttf") format("truetype");
+  font-weight: normal; /* Adjust if the font has specific weights */
+  font-style: normal; /* Adjust if the font has specific styles */
+}
+
+.logo-home {
+  position: absolute;
+  width: 40%;
+  top: 4%;
+  z-index: 0;
+
+  opacity: 50%;
+}
+
+.home {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  background-image: url("IMG/BACKGROUND.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  overflow: hidden; /* clip large text-glows so they don't create horizontal scroll */
+}
+
+.home h1 {
+  position: relative;
+  display: inline-block;
+  font-family: "Extenda Hecto Trial", sans-serif;
+  font-size: 600px;
+  font-weight: normal;
+  color: white;
+  z-index: 10;
+
+  /* subtle outer glow on the letters */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(0, 150, 255, 0.25);
+}
+
+/* large blurred background glow behind the whole heading */
+.home h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 150, 255, 0.25) 25%,
+    rgba(0, 150, 255, 0.12) 45%,
+    transparent 60%
+  );
+  filter: blur(40px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.home h2 {
+  position: absolute;
+  font-family: "Montserrat", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: white;
+  margin-top: 22%;
+
+  z-index: 10;
+}
+
+.school {
+  position: absolute;
+  z-index: inherit;
+  width: 100%;
+  /* opacity: 60%; */
+  margin-bottom: 0;
+  z-index: 0;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px; /* increased navbar height */
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.45); /* semi-transparent bar */
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center; /* vertically center nav content */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0 24px; /* horizontal padding only */
+  justify-content: center; /* center links horizontally */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 160ms ease, transform 120ms ease;
+}
+
+nav a:hover,
+nav a:focus {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ensure content isn't hidden behind fixed navbar */
+.home {
+  padding-top: 84px; /* match nav height so content isn't hidden */
+}
+
+.about {
+  position: relative; /* ensure absolute children stay within */
+  overflow: hidden; /* keep expanded content clipped inside the about section */
+  min-height: 100vh; /* changed from fixed height to min-height so it can grow */
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-image: url("IMG/BACKGROUND.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: min-height 320ms ease; /* animate size change */
+}
+
+/* when any card is open we increase the about section to allow more panel space */
+.about.expanded {
+  min-height: 160vh; /* scale this up/down to suit how much room you want */
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background-color: black;
+  opacity: 50%;
+  z-index: -0;
+  transition: height 320ms ease; /* animate height changes */
+}
+
+/* expand the overlay to match .about.expanded */
+.about.expanded::before {
+  height: 160vh; /* match .about.expanded min-height */
+}
+
+.about img {
+  width: 100%;
+  max-width: 100%;
+  opacity: 20%;
+  filter: blur(20px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: cover;
+}
+
+.about h1:nth-child(1) {
+  position: relative; /* needed for the pseudo-element */
+  z-index: 10;
+  color: white;
+  font-family: "Extenda Hecto Trial", sans-serif;
+  font-weight: normal;
+  font-size: 300px;
+  /* soft inner/outer glow on the letters */
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.9),
+    0 0 38px rgba(0, 150, 255, 0.3);
+}
+
+/* ensure .about is the positioning context (already set but reinforce) */
+.about {
+  position: relative;
+  /* ...existing rules... */
+}
+
+/* make the about-content sit above the decorative question marks */
+.about-content {
+  position: relative;
+  z-index: 30; /* higher than .question so content appears on top */
+}
+
+/* decorative question marks positioned behind the content */
+.question {
+  position: absolute;
+  z-index: 10; /* below .about-content */
+  pointer-events: none;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.1); /* subtle, tweak opacity as needed */
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  white-space: nowrap;
+  font-size: 18vw; /* scale with viewport; adjust if too large */
+  line-height: 1;
+  transform: translateY(-50%);
+  opacity: 100% !important;
+}
+
+/* position the two question marks where you want them visually */
+.question.q1 {
+  left: 6%;
+  top: 30%;
+}
+
+.question.q2 {
+  right: 6%;
+  top: 30%;
+}
+
+.problem {
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.problems-heading {
+  position: absolute;
+  top: 0;
+  /* left: 50%; */
+  /* transform: translate(-50%, 0); */
+  width: 100%;
+  text-align: center;
+  font-size: 8vw;
+  font-family: "Extenda Hecto Trial", sans-serif;
+  font-weight: normal;
+  font-size: 400px;
+  color: rgb(255, 255, 255);
+  opacity: 1; /* increased from 0.13 for more prominence */
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  /* Blur at the bottom using a gradient mask */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0) 10%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
+  filter: blur(0.5px);
+}
+
+/* Ensure .problem is positioned for absolute heading */
+.problem {
+  position: relative;
+  z-index: 2;
+}
+
+/* .problem-content stays above the heading */
+.problem-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Problems section grid layout */
+.problem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 48px 0;
+  background: transparent;
+  /* Add blurred background image behind everything in .problem */
+  overflow: hidden;
+}
+
+.problem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: url("IMG/Graph.webp") center center/cover no-repeat;
+  filter: blur(24px) brightness(0.8);
+  opacity: 0.85;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Grid for problem-content: two per row, rest wrap */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 14%;
+}
+
+/* Each problem-content box */
+.problem-content {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 32px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.12);
+  padding: 32px 40px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background 0.2s;
+  box-sizing: border-box;
+  min-width: 0;
+  font-family: "Montserrat", sans-serif;
+  /* Add background blur effect */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Make the last (fifth) box span both columns and center it */
+.problem-content:nth-child(5) {
+  grid-column: 1 / span 2;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.problem-content p {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.problem-content h1,
+.problem-content p {
+  color: white;
+}
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 1000px) {
+  .problem-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .problem-content,
+  .problem-content:nth-child(5) {
+    grid-column: auto;
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 10px;
+    border-radius: 18px;
+  }
+}
+
+.q1 {
+  margin-right: 45%;
+  margin-bottom: 20%;
+  rotate: -25deg;
+}
+
+.q2 {
+  margin-left: 45%;
+  margin-bottom: 20%;
+  rotate: 25deg;
+  font-size: 500px;
+}
+
+/* blurred, larger glow behind the whole heading */
+.about h1::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 60%;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(0, 150, 255, 0.22) 28%,
+    rgba(0, 150, 255, 0.1) 48%,
+    transparent 70%
+  );
+  filter: blur(36px);
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.about-content {
+  z-index: 6;
+  box-sizing: content-box;
+  width: 80vw;
+}
+
+.about-content p {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  z-index: 10;
+  font-size: 24px;
+}
+
+/* two columns of info below the about paragraph */
+.info-row {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 28px auto;
+  display: flex;
+  gap: 3%;
+  justify-content: center;
+  align-items: center;
+  /* align-items: flex-start;    */
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.info-box {
+  flex: 1 1 45%;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 2vh 2vw;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.info-box h3 {
+  margin: 0 0 1vh 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 3vh;
+}
+
+.info-box p {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.product {
+  /* Remove fixed height so it grows with content */
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 30, 56, 0.95),
+    rgba(0, 0, 0, 1)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-bottom: 60px;
+  overflow: hidden; /* Keep the floating glasses contained */
+}
+
+.product-h1 {
+  font-family: "extenda hecto trial", sans-serif;
+  font-weight: normal;
+  position: inherit;
+  color: white;
+  font-size: 600px;
+  z-index: 1;
+
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(0, 150, 255, 0.25);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.product-img {
+  position: absolute;
+  z-index: 0;
+  opacity: 60%;
+  width: 50%;
+  margin-top: 20%;
+  filter: blur(20px);
+}
+
+.product-div {
+  position: relative;
+  z-index: 2;
+  width: 60vw;
+  margin-top: 2%;
+  margin-bottom: 80px;
+  background: rgba(9, 75, 141, 0.445);
+  border-radius: 20px;
+
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.2), 0 0 40px rgba(0, 150, 255, 0.1),
+    inset 0 0 20px rgba(0, 150, 255, 0.1);
+  border: 1px solid rgba(0, 150, 255, 0.2);
+  animation: divGlow 4s ease-in-out infinite alternate;
+}
+.product-div p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+/* Decorative floating glasses in background */
+.product::before,
+.product::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* First layer (furthest back) - largest glasses */
+.product::before {
+  background: url("IMG/Glass.png") -10% 5% / 900px no-repeat,
+    url("IMG/Glass.png") 110% 15% / 1000px no-repeat,
+    url("IMG/Glass.png") -20% 55% / 850px no-repeat,
+    url("IMG/Glass.png") 120% 75% / 950px no-repeat,
+    url("IMG/Glass.png") 50% 35% / 800px no-repeat,
+    url("IMG/Glass.png") 15% 85% / 750px no-repeat;
+  filter: blur(8px) brightness(0.2);
+  opacity: 0.4;
+  animation: float-back 30s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Second layer - medium glasses */
+.product::after {
+  background: url("IMG/Glass.png") 15% 10% / 400px no-repeat,
+    url("IMG/Glass.png") 85% 5% / 350px no-repeat,
+    url("IMG/Glass.png") 25% 35% / 380px no-repeat,
+    url("IMG/Glass.png") 75% 40% / 420px no-repeat,
+    url("IMG/Glass.png") 10% 65% / 360px no-repeat,
+    url("IMG/Glass.png") 90% 70% / 390px no-repeat,
+    url("IMG/Glass.png") 30% 95% / 340px no-repeat,
+    url("IMG/Glass.png") 70% 90% / 370px no-repeat,
+    url("IMG/Glass.png") 50% 50% / 450px no-repeat,
+    url("IMG/Glass.png") 40% 20% / 380px no-repeat;
+  filter: blur(4px) brightness(0.3);
+  opacity: 0.5;
+  animation: float-middle 25s ease-in-out infinite;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+/* Third layer - smaller glasses */
+.product .glasses-small {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("IMG/Glass.png") 5% 20% / 200px no-repeat,
+    url("IMG/Glass.png") 95% 15% / 180px no-repeat,
+    url("IMG/Glass.png") 45% 40% / 220px no-repeat,
+    url("IMG/Glass.png") 55% 35% / 190px no-repeat,
+    url("IMG/Glass.png") 20% 70% / 210px no-repeat,
+    url("IMG/Glass.png") 80% 75% / 200px no-repeat,
+    url("IMG/Glass.png") 40% 90% / 180px no-repeat,
+    url("IMG/Glass.png") 60% 85% / 170px no-repeat,
+    url("IMG/Glass.png") 35% 60% / 160px no-repeat,
+    url("IMG/Glass.png") 75% 25% / 190px no-repeat,
+    url("IMG/Glass.png") 15% 45% / 170px no-repeat;
+  filter: blur(2px) brightness(0.4);
+  opacity: 0.6;
+  animation: float-front 20s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Updated animations with more movement */
+@keyframes float-back {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(-40px, 25px) rotate(3deg) scale(1.03);
+  }
+  50% {
+    transform: translate(20px, -20px) rotate(-2deg) scale(0.97);
+  }
+  75% {
+    transform: translate(30px, 15px) rotate(2deg) scale(1.02);
+  }
+}
+
+@keyframes float-middle {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-5deg) scale(1);
+  }
+  33% {
+    transform: translate(25px, -25px) rotate(-2deg) scale(1.02);
+  }
+  66% {
+    transform: translate(-20px, 15px) rotate(-7deg) scale(0.98);
+  }
+}
+
+@keyframes float-front {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translate(-15px, 10px) rotate(2deg) scale(1.01);
+  }
+  40% {
+    transform: translate(10px, -15px) rotate(-1deg) scale(0.99);
+  }
+  60% {
+    transform: translate(-10px, -10px) rotate(1deg) scale(1.02);
+  }
+  80% {
+    transform: translate(15px, 5px) rotate(-2deg) scale(0.98);
+  }
+}
+
+.timeline-section {
+  width: 100vw;
+  padding: 80px 0 60px 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.timeline-heading {
+  font-size: 3.5vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800 !important;
+  color: #fff;
+  letter-spacing: 0.08em;
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: normal;
+  z-index: 2;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(255, 255, 255, 0.25);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.timeline {
+  position: relative;
+  width: 90vw;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(180deg, #00c6ff 0%, #0072ff 100%);
+  border-radius: 4px;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 90px;
+  min-height: 180px;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-dot {
+  position: absolute !important;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  background: #fff;
+  border: 6px solid #00c6ff;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow: 0 0 24px #00c6ff77;
+}
+
+.timeline-content {
+  background: rgba(9, 75, 141, 0.445);
+  backdrop-filter: blur(14px);
+  border-radius: 28px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  padding: 48px 56px;
+  color: #fff;
+  width: 54vw;
+  max-width: 520px;
+  min-width: 260px;
+  margin-left: 90px;
+  margin-right: 0;
+  z-index: 2;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.35rem;
+  /* Displace timeline-content to the left or right for zig-zag effect */
+  transform: translateX(-40px);
+  /* Add glowing effects */
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.15), 0 0 40px rgba(0, 150, 255, 0.1),
+    inset 0 0 20px rgba(0, 150, 255, 0.1);
+  border: 1px solid rgba(0, 150, 255, 0.2);
+  animation: timelineGlow 4s ease-in-out infinite alternate;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 0;
+  margin-right: 90px;
+  text-align: right;
+  /* Add displacement for even items */
+  transform: translateX(40%);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-left: 90px;
+  margin-right: 0;
+  text-align: left;
+  /* Add displacement for odd items */
+  transform: translateX(-40%);
+}
+
+.timeline-item:nth-child(even) {
+  margin-left: 0 !important;
+  margin-right: 90px !important;
+  text-align: right !important;
+  /* Add displacement for even items */
+}
+
+.timeline-content h2 {
+  margin: 0 0 18px 0;
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #00c6ff;
+}
+
+.timeline-content p {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #fff;
+  line-height: 1.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .timeline {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 20px 0;
+  }
+  .timeline-content {
+    width: 90vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 28px 10px;
+    font-size: 1.1rem;
+    /* Remove displacement for stacking */
+    margin-left: 60px;
+    margin-right: 0;
+    text-align: left;
+    transform: none;
+  }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 60px;
+    margin-right: 0;
+    text-align: left;
+  }
+  .timeline-dot {
+    left: 0;
+    transform: none;
+    top: 40px;
+  }
+  .timeline::before {
+    left: 18px;
+    transform: none;
+  }
+}
+
+.team {
+  width: 100%;
+  padding: 80px 0 60px 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: black;
+}
+
+.team-heading {
+  font-size: 5vw;
+  font-family: "Extenda Hecto Trial", sans-serif;
+  color: #fff;
+  letter-spacing: 0.08em;
+  margin-bottom: 60px;
+  text-align: center;
+  font-weight: normal;
+  z-index: 2;
+}
+
+.team-members {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vw 5vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.team-photo {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  background: #222;
+  margin-bottom: 24px;
+}
+
+.team-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.1rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .timeline {
+    width: 98vw;
+    max-width: 98vw;
+    padding: 20px 0;
+  }
+  .timeline-content {
+    width: 90vw;
+    max-width: 98vw;
+    min-width: 0;
+    padding: 28px 10px;
+    font-size: 1.1rem;
+  }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    margin-left: 60px;
+    margin-right: 0;
+    text-align: left;
+  }
+  .timeline-dot {
+    left: 0;
+    transform: none;
+    top: 40px;
+  }
+  .timeline::before {
+    left: 18px;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .timeline-content {
+    padding: 18px 4vw;
+    font-size: 1rem;
+  }
+  .timeline-dot {
+    width: 24px;
+    height: 24px;
+    border-width: 4px;
+    top: 24px;
+  }
+  .timeline::before {
+    width: 4px;
+    left: 10px;
+  }
+}
+
+/* First ensure all content has proper z-index */
+.product-h1,
+.product-div,
+.timeline-section,
+.timeline,
+.timeline-content,
+.timeline-dot {
+  position: relative;
+  z-index: 10;
+}
+
+/* Background layers need lower z-index values */
+.product::before,
+.product::after {
+  z-index: 1;
+}
+
+/* Third layer of glasses (currently conflicting with first layer) needs unique name */
+.product .glasses-small {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("IMG/Glass.png") 5% 20% / 200px no-repeat,
+    url("IMG/Glass.png") 95% 15% / 180px no-repeat,
+    url("IMG/Glass.png") 45% 40% / 220px no-repeat,
+    url("IMG/Glass.png") 55% 35% / 190px no-repeat,
+    url("IMG/Glass.png") 20% 70% / 210px no-repeat,
+    url("IMG/Glass.png") 80% 75% / 200px no-repeat,
+    url("IMG/Glass.png") 40% 90% / 180px no-repeat,
+    url("IMG/Glass.png") 60% 85% / 170px no-repeat,
+    url("IMG/Glass.png") 35% 60% / 160px no-repeat,
+    url("IMG/Glass.png") 75% 25% / 190px no-repeat,
+    url("IMG/Glass.png") 15% 45% / 170px no-repeat;
+  filter: blur(2px) brightness(0.4);
+  opacity: 0.6;
+  animation: float-front 20s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Update product section to include the new layer */
+.product {
+  position: relative;
+  isolation: isolate; /* Creates stacking context */
+}
+
+/* Ensure media queries maintain z-index hierarchy */
+@media (max-width: 900px) {
+  .product-h1,
+  .product-div,
+  .timeline-section,
+  .timeline-content,
+  .timeline-dot {
+    z-index: 10;
+  }
+
+  .product::before,
+  .product::after,
+  .product .glasses-small {
+    z-index: 1;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
+      0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(0, 150, 255, 0.25);
+  }
+  to {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 1),
+      0 0 50px rgba(0, 150, 255, 0.6), 0 0 90px rgba(0, 150, 255, 0.4);
+  }
+}
+
+@keyframes imgGlow {
+  from {
+    filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.3))
+      drop-shadow(0 0 40px rgba(0, 150, 255, 0.2));
+    opacity: 60%;
+  }
+  to {
+    filter: drop-shadow(0 0 30px rgba(0, 150, 255, 0.4))
+      drop-shadow(0 0 60px rgba(0, 150, 255, 0.3));
+    opacity: 75%;
+  }
+}
+
+@keyframes divGlow {
+  from {
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.2), 0 0 40px rgba(0, 150, 255, 0.1),
+      inset 0 0 20px rgba(0, 150, 255, 0.1);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(0, 150, 255, 0.3), 0 0 60px rgba(0, 150, 255, 0.2),
+      inset 0 0 30px rgba(0, 150, 255, 0.2);
+  }
+}
+
+/* CONTACT - Instagram only */
+.contact-instagram {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 0 72px 0;
+  position: relative;
+  z-index: 12; /* above product background layers */
+  background: black;
+}
+.contact-instagram .contact-inner {
+  width: 88vw;
+  max-width: 720px;
+  background: rgba(6, 20, 40, 0.5);
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), 0 0 40px rgba(0, 150, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 150, 255, 0.08);
+}
+.ig-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+.ig-icon {
+  width: 120px;
+  height: 120px;
+  display: block;
+  border-radius: 50%; /* perfect circle */
+  overflow: hidden; /* clip svg into circle */
+  box-shadow: 0 8px 40px rgba(0, 150, 255, 0.18),
+    0 0 80px rgba(0, 150, 255, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.ig-link:hover .ig-icon,
+.ig-link:focus .ig-icon {
+  transform: scale(1.06);
+  box-shadow: 0 12px 60px rgba(0, 198, 255, 0.28),
+    0 0 120px rgba(0, 198, 255, 0.12);
+}
+.ig-handle {
+  margin-top: 12px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(0, 150, 255, 0.18);
+}
+.ig-desc {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .ig-icon {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .contact-instagram .contact-inner {
+    padding: 20px;
+  }
+}
+
+/* Promo section: left image holder + right promo text */
+.promo {
+  width: 100%;
+  padding: 56px 6%;
+  background: linear-gradient(180deg, #000000 0%, #153bb3 100%);
+  color: #fff;
+  position: relative;
+  z-index: 12; /* above floating product backgrounds */
+  isolation: isolate;
+}
+.promo-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.promo-left {
+  flex: 1 1 48%;
+  display: flex;
+  justify-content: flex-start;
+}
+.image-card {
+  background: #ffffff;
+  color: #111;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  max-width: 520px;
+}
+.image-card h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+.order-sample {
+  background: #f8fbff;
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px; /* sample holder height to match the mock */
+  overflow: hidden;
+}
+.order-sample img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.promo-right {
+  flex: 1 1 48%;
+  text-align: center;
+  padding: 12px 6px;
+}
+.promo-brand {
+  width: 220px;
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+}
+.promo-right h1 {
+  margin: 18px 0 8px 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  line-height: 0.88;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+.promo-code {
+  display: inline-block;
+  background: #fff;
+  color: #07123a;
+  padding: 10px 22px;
+  border-radius: 8px;
+  margin: 8px 0;
+  font-weight: 800;
+  font-size: 100px;
+}
+.promo-note {
+  margin-top: 14px;
+  opacity: 0.92;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (max-width: 1000px) {
+  .promo-inner {
+    flex-direction: column-reverse;
+    gap: 18px;
+  }
+  .promo-right h1 {
+    font-size: 2.2rem;
+  }
+  .order-sample {
+    min-height: 220px;
+  }
+  .promo-brand {
+    width: 160px;
+  }
+}
