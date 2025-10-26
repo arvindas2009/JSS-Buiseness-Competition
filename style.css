@@ -9,6 +9,10 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  overflow-y: hidden;
+}
+
 /* Utility: let an element be 300% wide but keep it centered without creating page overflow.
    Usage: add class `wide-center-300` to an <img> or a container. The parent should
    have overflow:hidden if you want the extra width visually clipped. */
@@ -966,6 +970,10 @@ nav a:focus {
     left: 18px;
     transform: none;
   }
+
+  .team-heading {
+    font-size: 20vw !important;
+  }
 }
 
 .team {
@@ -980,7 +988,7 @@ nav a:focus {
 }
 
 .team-heading {
-  font-size: 5vw;
+  font-size: 8vw;
   font-family: "Extenda Hecto Trial", sans-serif;
   color: #fff;
   letter-spacing: 0.08em;
@@ -1028,6 +1036,11 @@ nav a:focus {
   font-weight: 600;
   letter-spacing: 0.04em;
   margin-top: 0;
+}
+
+.web-dev {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
 }
 
 /* Responsive adjustments */
@@ -1184,6 +1197,22 @@ nav a:focus {
   }
 }
 
+/* Pulse animation for promo-brand to draw subtle attention */
+@keyframes promoPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 8px 28px rgba(251, 255, 0, 0.6);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 16px 48px rgba(0, 198, 255, 0.18);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 8px 28px rgba(251, 255, 0, 0.6);
+  }
+}
+
 /* CONTACT - Instagram only */
 .contact-instagram {
   width: 100%;
@@ -1193,7 +1222,7 @@ nav a:focus {
   padding: 48px 0 72px 0;
   position: relative;
   z-index: 12; /* above product background layers */
-  background: black;
+  background: linear-gradient(180deg, #000000 0%, #153bb3 100%);
 }
 .contact-instagram .contact-inner {
   width: 88vw;
@@ -1248,6 +1277,68 @@ nav a:focus {
   text-align: center;
   max-width: 720px;
   margin: 0;
+}
+
+/* Shop modal (mobile): simple, accessible overlay used when SHOP is tapped on phones */
+.shop-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 620; /* above nav */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 180ms ease, visibility 180ms ease;
+}
+.shop-modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+.shop-modal-inner {
+  background: linear-gradient(180deg, #071427, #04203a);
+  color: #fff;
+  padding: 20px 20px 18px 20px;
+  border-radius: 12px;
+  width: min(92vw, 420px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 150, 255, 0.08);
+  text-align: center;
+  position: relative;
+}
+.shop-modal h2 {
+  margin: 6px 0 8px 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  color: #fff;
+}
+.shop-modal p {
+  font-family: "Montserrat", sans-serif;
+  margin: 0 0 12px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.98rem;
+}
+.shop-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.shop-modal-ok {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 18px;
+  background: #00c6ff;
+  color: #04142b;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 @media (max-width: 1000px) {
@@ -1431,7 +1522,7 @@ nav a:focus {
 .promo {
   width: 100%;
   padding: 56px 6%;
-  background: linear-gradient(180deg, #000000 0%, #153bb3 100%);
+  background-color: black;
   color: #fff;
   position: relative;
   z-index: 12; /* above floating product backgrounds */
@@ -1493,6 +1584,15 @@ nav a:focus {
   padding: 10px 18px;
   border-radius: 6px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  transform-origin: center center;
+  /* subtle attention-grabbing scale pulse */
+  animation: promoPulse 3.6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.promo-brand:hover {
+  /* Slightly stronger shadow on hover without fighting the pulse animation */
+  box-shadow: 0 14px 50px rgba(0, 198, 255, 0.18);
 }
 .promo-right h1 {
   margin: 18px 0 8px 0;
@@ -1504,6 +1604,13 @@ nav a:focus {
   text-transform: uppercase;
   color: #fff;
   text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+}
+.promo-right h2:nth-child(1) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin-bottom: 22px;
+  color: #ffffff;
 }
 .promo-code {
   display: inline-block;
@@ -1589,6 +1696,10 @@ nav a:focus {
   .team {
     height: auto !important;
     min-height: auto !important;
+  }
+
+  .buying {
+    display: none;
   }
 
   /* Ensure overlay pseudo-elements don't force large fixed heights */

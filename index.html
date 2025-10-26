@@ -26,10 +26,12 @@
         <li><a href="#home">HOME</a></li>
         <li><a href="#about">ABOUT</a></li>
         <li><a href="#product">PRODUCT</a></li>
+        <li><a href="#promo">PARTNERS</a></li>
+        <li><a href="#shop" class="shop-link">SHOP</a></li>
         <li><a href="#team">TEAM</a></li>
       </ul>
     </nav>
-    <section class="home">
+    <section class="home" id="home">
       <img
         src="IMG/Logo.png"
         alt=""
@@ -308,7 +310,7 @@
     </section>
 
     <!-- Buying / Shop section: 4 product cards -->
-    <section class="buying">
+    <section class="buying" id="shop">
       <div class="buying-blur"></div>
       <div class="buying-inner">
         <h1 class="coming-soon-text">COMING SOON</h1>
@@ -361,14 +363,45 @@
       </div>
     </section>
 
+    <!-- Promotional split section: left sample image holder + right large promo text -->
+    <section class="promo" id="promo">
+      <div class="promo-inner">
+        <div class="promo-left" data-aos="zoom-in" data-aos-duration="600">
+          <div class="image-card">
+            <h3>Order Summary</h3>
+            <div class="order-sample">
+              <!-- sample image holder (replace IMG/Graph.webp with final artwork) -->
+              <img src="IMG/Code.png" alt="Sample order summary" />
+            </div>
+          </div>
+        </div>
+        <div class="promo-right" data-aos="fade-left" data-aos-duration="800">
+          <h2>OUR OFFICIAL PARTNER</h2>
+          <img src="IMG/noon-2.svg" alt="Brand" class="promo-brand" />
+          <h1>
+            USE CODE
+            <span class="promo-code">"OPTICIOUS"</span>
+            FOR 10% OFF
+          </h1>
+          <p class="promo-note">
+            Follow us on our store for limited-time offers.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section class="team" id="team">
       <h1 class="team-heading" data-aos="fade-up" data-aos-duration="400">
         OUR TEAM
       </h1>
       <div class="team-members">
         <div class="team-member" data-aos="zoom-in" data-aos-duration="600">
-          <img src="IMG/member1.jpg" alt="Member 1" class="team-photo" />
-          <div class="team-name">Member Name 1</div>
+          <img
+            src="IMG/MEMBERS/Lakshya.jpg"
+            alt="Member 1"
+            class="team-photo"
+          />
+          <div class="team-name">Lakshya</div>
         </div>
         <div
           class="team-member"
@@ -376,8 +409,8 @@
           data-aos-duration="600"
           data-aos-delay="100"
         >
-          <img src="IMG/member2.jpg" alt="Member 2" class="team-photo" />
-          <div class="team-name">Member Name 2</div>
+          <img src="IMG/MEMBERS/Ayati.jpg" alt="Member 2" class="team-photo" />
+          <div class="team-name">Ayati</div>
         </div>
         <div
           class="team-member"
@@ -385,8 +418,12 @@
           data-aos-duration="600"
           data-aos-delay="200"
         >
-          <img src="IMG/member3.jpg" alt="Member 3" class="team-photo" />
-          <div class="team-name">Member Name 3</div>
+          <img
+            src="IMG/MEMBERS/Prakhar.JPEG.jpg"
+            alt="Member 3"
+            class="team-photo"
+          />
+          <div class="team-name">Prakhar</div>
         </div>
         <div
           class="team-member"
@@ -394,21 +431,24 @@
           data-aos-duration="600"
           data-aos-delay="300"
         >
-          <img src="IMG/member4.jpg" alt="Member 4" class="team-photo" />
-          <div class="team-name">Member Name 4</div>
+          <img src="IMG/MEMBERS/Evah.PNG" alt="Member 4" class="team-photo" />
+          <div class="team-name">Evah</div>
         </div>
       </div>
+      <p class="web-dev" style="color: white; text-align: center">
+        WEBSITE BY ARVIN
+      </p>
     </section>
     <!-- CONTACT: Instagram only -->
     <section class="contact-instagram">
       <div class="contact-inner" data-aos="fade-up">
         <!-- Inline Instagram SVG icon -->
         <a
-          href="https://instagram.com/yourhandle"
+          href="https://instagram.com/opticious"
           target="_blank"
           rel="noopener noreferrer"
           class="ig-link"
-          aria-label="Visit our Instagram @yourhandle"
+          aria-label="Visit our Instagram @opticious"
         >
           <svg
             class="ig-icon"
@@ -417,7 +457,7 @@
             aria-labelledby="ig-title"
             preserveAspectRatio="xMidYMid meet"
           >
-            <title id="ig-title">Instagram — @yourhandle</title>
+            <title id="ig-title">Instagram — @opticious</title>
             <linearGradient id="g1" x1="0%" x2="100%" y1="0%" y2="100%">
               <stop offset="0%" stop-color="#feda75" />
               <stop offset="50%" stop-color="#d62976" />
@@ -458,7 +498,7 @@
               opacity="0.95"
             />
           </svg>
-          <div class="ig-handle">@yourhandle</div>
+          <div class="ig-handle">@opticious</div>
         </a>
         <p class="ig-desc">
           Follow us on Instagram for product updates, launches and
@@ -467,32 +507,24 @@
       </div>
     </section>
 
-    <!-- Promotional split section: left sample image holder + right large promo text -->
-    <section class="promo">
-      <div class="promo-inner">
-        <div class="promo-left" data-aos="zoom-in" data-aos-duration="600">
-          <div class="image-card">
-            <h3>Order Summary</h3>
-            <div class="order-sample">
-              <!-- sample image holder (replace IMG/Graph.webp with final artwork) -->
-              <img src="IMG/Code.png" alt="Sample order summary" />
-            </div>
-          </div>
-        </div>
-        <div class="promo-right" data-aos="fade-left" data-aos-duration="800">
-          <img src="IMG/noon-2.svg" alt="Brand" class="promo-brand" />
-          <h1>
-            USE CODE
-            <span class="promo-code">"OPTICIOUS"</span>
-            FOR 10% OFF
-          </h1>
-          <p class="promo-note">
-            Follow us on our store for limited-time offers.
-          </p>
-        </div>
+    <!-- Shop modal markup (required for the mobile SHOP handler) -->
+    <div id="shop-modal" class="shop-modal" aria-hidden="true">
+      <div
+        class="shop-modal-inner"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="shop-modal-title"
+      >
+        <button class="shop-modal-close" aria-label="Close shop dialog">
+          ×
+        </button>
+        <h2 id="shop-modal-title">Coming Soon!</h2>
+        <p>
+          Our shop is launching soon — stay tuned for product drops and updates.
+        </p>
+        <button class="shop-modal-ok">Close</button>
       </div>
-    </section>
-
+    </div>
     <script src="script.js" defer></script>
     <script>
       AOS.init();
