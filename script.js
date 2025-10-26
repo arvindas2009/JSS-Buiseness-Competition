@@ -7,11 +7,9 @@ navToggle.setAttribute("aria-expanded", "false");
 navToggle.addEventListener("click", function () {
   const opened = navList.classList.toggle("open");
   navToggle.setAttribute("aria-expanded", opened ? "true" : "false");
-  // prevent page scroll when menu is open
   document.body.style.overflow = opened ? "hidden" : "";
 });
 
-// Close on Escape for accessibility
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" || e.key === "Esc") {
     navList.classList.remove("open");
@@ -19,7 +17,6 @@ document.addEventListener("keydown", function (e) {
     document.body.style.overflow = "";
   }
 });
-// Optional: close menu when clicking a link (mobile UX)
 document.querySelectorAll(".navbar ul a").forEach(function (link) {
   link.onclick = function () {
     navList.classList.remove("open");
@@ -37,14 +34,11 @@ if (shopLink && shopModal) {
   );
 
   function openShopModal(e) {
-    // only intercept on small screens (phones/tablets). On desktop, let anchor behave normally.
     if (window.innerWidth > 1000) return;
     e.preventDefault();
     shopModal.classList.add("open");
     shopModal.setAttribute("aria-hidden", "false");
-    // lock document scroll while modal is open
     document.body.style.overflow = "hidden";
-    // focus the close button for accessibility
     const first = shopModal.querySelector(".shop-modal-close");
     if (first) first.focus();
   }
@@ -59,7 +53,6 @@ if (shopLink && shopModal) {
   shopLink.addEventListener("click", openShopModal);
   shopCloseBtns.forEach((btn) => btn.addEventListener("click", closeShopModal));
 
-  // Close with Escape as well (coexists with the nav Escape handler)
   document.addEventListener("keydown", function (e) {
     if (
       (e.key === "Escape" || e.key === "Esc") &&
@@ -78,7 +71,6 @@ if (productToggle) {
     const expanded = productDiv.classList.toggle("expanded");
     this.setAttribute("aria-expanded", expanded ? "true" : "false");
     this.textContent = expanded ? "Show less" : "Read more";
-    // When expanding, ensure the area is visible (scroll into view)
     if (expanded) {
       setTimeout(() => {
         productDiv.scrollIntoView({ behavior: "smooth", block: "center" });

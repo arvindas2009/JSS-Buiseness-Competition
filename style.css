@@ -1,47 +1,40 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* prevent elements from growing past widths */
+  box-sizing: border-box;
 }
-/* Prevent horizontal overflow caused by fixed/fullscreen panels */
 html,
 body {
   overflow-x: hidden;
 }
-
 body {
   overflow-y: hidden;
 }
-
-/* Utility: let an element be 300% wide but keep it centered without creating page overflow.
-   Usage: add class `wide-center-300` to an <img> or a container. The parent should
-   have overflow:hidden if you want the extra width visually clipped. */
-
-/* Base (desktop): no forced oversized layout. Small-screen override below makes it 300% */
 .wide-center-300 {
   display: block;
   max-width: none;
   box-sizing: border-box;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Proxima:ital,wght@0,100..900;1,100..900&display=swap");
 @font-face {
-  font-family: "Extenda Hecto Trial"; /* Choose a descriptive name for your font */
+  font-family: "Extenda Hecto Trial";
   src: url("FONT/Extenda-40-Hecto-trial.ttf") format("truetype");
-  font-weight: normal; /* Adjust if the font has specific weights */
-  font-style: normal; /* Adjust if the font has specific styles */
+  font-weight: normal;
+  font-style: normal;
 }
-
+@font-face {
+  font-family: "Proxima";
+  src: url("FONT/proximanova_regular.ttf") format("truetype") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 .logo-home {
   position: absolute;
   width: 40%;
   top: 4%;
   z-index: 0;
-
   opacity: 50%;
 }
-
 .home {
   height: 100vh;
   width: 100%;
@@ -51,15 +44,12 @@ body {
   justify-content: center;
   display: flex;
   flex-direction: column;
-
   background-image: url("IMG/BACKGROUND.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
-  overflow: hidden; /* clip large text-glows so they don't create horizontal scroll */
+  overflow: hidden;
 }
-
 .home h1 {
   position: relative;
   display: inline-block;
@@ -68,13 +58,9 @@ body {
   font-weight: normal;
   color: white;
   z-index: 10;
-
-  /* subtle outer glow on the letters */
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
     0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(0, 150, 255, 0.25);
 }
-
-/* large blurred background glow behind the whole heading */
 .home h1::before {
   content: "";
   position: absolute;
@@ -95,61 +81,52 @@ body {
   pointer-events: none;
   opacity: 0.9;
 }
-
 .home h2 {
   position: absolute;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 40px;
   font-weight: 600;
   color: white;
   margin-top: 22%;
-
   z-index: 10;
 }
-
 .school {
   position: absolute;
   z-index: inherit;
   width: 100%;
-  /* opacity: 60%; */
   margin-bottom: 0;
   z-index: 0;
 }
-
 nav {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 84px; /* increased navbar height */
+  height: 84px;
   z-index: 200;
-  background: rgba(0, 0, 0, 0.45); /* semi-transparent bar */
+  background: rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(6px);
   display: flex;
-  align-items: center; /* vertically center nav content */
+  align-items: center;
 }
-
 nav ul {
   list-style: none;
   display: flex;
   gap: 28px;
   margin: 0;
-  padding: 0 24px; /* horizontal padding only */
-  justify-content: center; /* center links horizontally */
+  padding: 0 24px;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 }
-
 nav li {
   display: inline-block;
 }
-
 nav a {
   color: #fff;
   text-decoration: none;
-
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 1px;
@@ -157,15 +134,12 @@ nav a {
   border-radius: 6px;
   transition: background 160ms ease, transform 120ms ease;
 }
-
 nav a:hover,
 nav a:focus {
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
   outline: none;
 }
-
-/* Hamburger button (hidden on desktop) */
 .nav-toggle {
   display: none;
   background: transparent;
@@ -199,13 +173,10 @@ nav a:focus {
 .nav-toggle span::after {
   top: 8px;
 }
-
-/* Mobile: collapse the nav into a hidden panel */
 @media (max-width: 900px) {
   .nav-toggle {
     display: block;
   }
-  /* Fullscreen panel that slides down from the top */
   nav ul {
     position: fixed;
     left: 0;
@@ -227,14 +198,13 @@ nav a:focus {
     padding: 28px 20px;
     z-index: 240;
     pointer-events: none;
-    box-sizing: border-box; /* ensure padding does not add to width */
-    width: 100vw; /* avoid layout shifts when scrollbar appears */
+    box-sizing: border-box;
+    width: 100vw;
     max-width: 100%;
-    overflow-y: auto; /* allow internal scrolling instead of page scroll */
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
-  /* When open, slide into place */
   nav ul.open {
     transform: translateY(0);
     pointer-events: auto;
@@ -251,9 +221,6 @@ nav a:focus {
     width: 100%;
     max-width: 420px;
   }
-
-  /* On small screens, allow decorative assets to expand to 300% and stay centered
-     without causing page overflow. Apply this class to an element or <img>. */
   .wide-center-300 {
     width: 300%;
     max-width: none;
@@ -261,14 +228,13 @@ nav a:focus {
     left: 50%;
     transform: translateX(-50%);
     box-sizing: border-box;
-    pointer-events: none; /* decorative by default */
+    pointer-events: none;
   }
   .wide-center-300 img {
     width: 100%;
     height: auto;
     display: block;
   }
-  /* dim underlying content with a subtle backdrop when open */
   nav ul.open::before {
     content: "";
     position: fixed;
@@ -278,16 +244,13 @@ nav a:focus {
     z-index: -1;
   }
 }
-
-/* ensure content isn't hidden behind fixed navbar */
 .home {
-  padding-top: 84px; /* match nav height so content isn't hidden */
+  padding-top: 84px;
 }
-
 .about {
-  position: relative; /* ensure absolute children stay within */
-  overflow: hidden; /* keep expanded content clipped inside the about section */
-  min-height: 100vh; /* changed from fixed height to min-height so it can grow */
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -298,14 +261,11 @@ nav a:focus {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  transition: min-height 320ms ease; /* animate size change */
+  transition: min-height 320ms ease;
 }
-
-/* when any card is open we increase the about section to allow more panel space */
 .about.expanded {
-  min-height: 160vh; /* scale this up/down to suit how much room you want */
+  min-height: 160vh;
 }
-
 .about::before {
   content: "";
   position: absolute;
@@ -316,14 +276,11 @@ nav a:focus {
   background-color: black;
   opacity: 50%;
   z-index: -0;
-  transition: height 320ms ease; /* animate height changes */
+  transition: height 320ms ease;
 }
-
-/* expand the overlay to match .about.expanded */
 .about.expanded::before {
-  height: 160vh; /* match .about.expanded min-height */
+  height: 160vh;
 }
-
 .about img {
   width: 100%;
   max-width: 100%;
@@ -334,58 +291,45 @@ nav a:focus {
   top: 0;
   object-fit: cover;
 }
-
 .about h1:nth-child(1) {
-  position: relative; /* needed for the pseudo-element */
+  position: relative;
   z-index: 10;
   color: white;
   font-family: "Extenda Hecto Trial", sans-serif;
   font-weight: normal;
   font-size: 300px;
-  /* soft inner/outer glow on the letters */
   text-shadow: 0 0 18px rgba(255, 255, 255, 0.9),
     0 0 38px rgba(0, 150, 255, 0.3);
 }
-
-/* ensure .about is the positioning context (already set but reinforce) */
 .about {
   position: relative;
-  /* ...existing rules... */
 }
-
-/* make the about-content sit above the decorative question marks */
 .about-content {
   position: relative;
-  z-index: 30; /* higher than .question so content appears on top */
+  z-index: 30;
 }
-
-/* decorative question marks positioned behind the content */
 .question {
   position: absolute;
-  z-index: 10; /* below .about-content */
+  z-index: 10;
   pointer-events: none;
   user-select: none;
-  color: rgba(255, 255, 255, 0.08); /* subtle, tweak opacity as needed */
+  color: rgba(255, 255, 255, 0.08);
   font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   white-space: nowrap;
-  font-size: 18vw; /* scale with viewport; adjust if too large */
+  font-size: 18vw;
   line-height: 1;
   transform: translateY(-50%);
   opacity: 1;
 }
-
-/* position the two question marks where you want them visually */
 .question.q1 {
   left: 6%;
   top: 30%;
 }
-
 .question.q2 {
   right: 6%;
   top: 30%;
 }
-
 .problem {
   height: 100vh;
   width: 100vw;
@@ -396,12 +340,9 @@ nav a:focus {
   flex-direction: column;
   position: relative;
 }
-
 .problems-heading {
   position: absolute;
   top: 0;
-  /* left: 50%; */
-  /* transform: translate(-50%, 0); */
   width: 100%;
   text-align: center;
   font-size: 8vw;
@@ -409,11 +350,10 @@ nav a:focus {
   font-weight: normal;
   font-size: 400px;
   color: rgb(255, 255, 255);
-  opacity: 1; /* increased from 0.13 for more prominence */
+  opacity: 1;
   z-index: 1;
   pointer-events: none;
   user-select: none;
-  /* Blur at the bottom using a gradient mask */
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgb(0, 0, 0) 10%,
@@ -422,20 +362,14 @@ nav a:focus {
   mask-image: linear-gradient(to bottom, black 10%, transparent 100%);
   filter: blur(0.5px);
 }
-
-/* Ensure .problem is positioned for absolute heading */
 .problem {
   position: relative;
   z-index: 2;
 }
-
-/* .problem-content stays above the heading */
 .problem-content {
   position: relative;
   z-index: 2;
 }
-
-/* Problems section grid layout */
 .problem {
   position: relative;
   display: flex;
@@ -444,10 +378,8 @@ nav a:focus {
   width: 100%;
   padding: 48px 0;
   background: transparent;
-  /* Add blurred background image behind everything in .problem */
   overflow: hidden;
 }
-
 .problem::before {
   content: "";
   position: absolute;
@@ -460,8 +392,6 @@ nav a:focus {
   z-index: 0;
   pointer-events: none;
 }
-
-/* Grid for problem-content: two per row, rest wrap */
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -472,8 +402,6 @@ nav a:focus {
   margin: 0 auto;
   margin-top: 14%;
 }
-
-/* Each problem-content box */
 .problem-content {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 32px;
@@ -486,64 +414,51 @@ nav a:focus {
   transition: background 0.2s;
   box-sizing: border-box;
   min-width: 0;
-  font-family: "Montserrat", sans-serif;
-  /* Add background blur effect */
+  font-family: "Proxima", sans-serif;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-
-/* Make the last (fifth) box span both columns and center it */
 .problem-content:nth-child(5) {
   grid-column: 1 / span 2;
   justify-content: center;
   max-width: 700px;
   margin: 0 auto;
 }
-
 .problem-content p {
   font-size: 20px;
   margin-top: 20px;
 }
-
 .problem-content h1,
 .problem-content p {
   color: white;
 }
-
-/* Responsive: stack vertically on small screens */
 @media (max-width: 1000px) {
   .problem-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  /* On small screens, make each problem card slightly narrower and centered
-     so content reads comfortably and doesn't stretch full-bleed. */
   .problem-content,
   .problem-content:nth-child(5) {
     grid-column: auto;
-    max-width: 720px; /* limit the card width */
-    width: 90%; /* allow breathing room at the sides */
-    margin: 0 auto; /* center the cards horizontally */
+    max-width: 720px;
+    width: 90%;
+    margin: 0 auto;
     padding: 20px 16px;
     border-radius: 18px;
     box-sizing: border-box;
   }
 }
-
 .q1 {
   margin-right: 45%;
   margin-bottom: 20%;
   rotate: -25deg;
 }
-
 .q2 {
   margin-left: 45%;
   margin-bottom: 20%;
   rotate: 25deg;
   font-size: 500px;
 }
-
-/* blurred, larger glow behind the whole heading */
 .about h1::before {
   content: "";
   position: absolute;
@@ -564,21 +479,17 @@ nav a:focus {
   pointer-events: none;
   z-index: -1;
 }
-
 .about-content {
   z-index: 6;
   box-sizing: content-box;
   width: 80vw;
 }
-
 .about-content p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   color: white;
   z-index: 10;
   font-size: 24px;
 }
-
-/* two columns of info below the about paragraph */
 .info-row {
   width: 80vw;
   max-width: 1200px;
@@ -587,11 +498,9 @@ nav a:focus {
   gap: 3%;
   justify-content: center;
   align-items: center;
-  /* align-items: flex-start;    */
   z-index: 1;
   box-sizing: border-box;
 }
-
 .info-box {
   flex: 1 1 45%;
   background: rgba(255, 255, 255, 0.03);
@@ -600,23 +509,19 @@ nav a:focus {
   color: white;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
 }
-
 .info-box h3 {
   margin: 0 0 1vh 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 3vh;
 }
-
 .info-box p {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 20px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
 }
-
 .product {
-  /* Remove fixed height so it grows with content */
   min-height: 100vh;
   height: auto;
   width: 100%;
@@ -630,9 +535,8 @@ nav a:focus {
   align-items: center;
   position: relative;
   padding-bottom: 60px;
-  overflow: hidden; /* Keep the floating glasses contained */
+  overflow: hidden;
 }
-
 .product-h1 {
   font-family: "extenda hecto trial", sans-serif;
   font-weight: normal;
@@ -640,12 +544,10 @@ nav a:focus {
   color: white;
   font-size: 600px;
   z-index: 1;
-
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
     0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(0, 150, 255, 0.25);
   animation: glow 2s ease-in-out infinite alternate;
 }
-
 .product-img {
   position: absolute;
   z-index: 0;
@@ -654,7 +556,6 @@ nav a:focus {
   margin-top: 20%;
   filter: blur(20px);
 }
-
 .product-div {
   position: relative;
   z-index: 2;
@@ -663,21 +564,18 @@ nav a:focus {
   margin-bottom: 80px;
   background: rgba(9, 75, 141, 0.445);
   border-radius: 20px;
-
   box-shadow: 0 0 20px rgba(0, 150, 255, 0.2), 0 0 40px rgba(0, 150, 255, 0.1),
     inset 0 0 20px rgba(0, 150, 255, 0.1);
   border: 1px solid rgba(0, 150, 255, 0.2);
   animation: divGlow 4s ease-in-out infinite alternate;
 }
 .product-div p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1.5rem;
   color: white;
   text-align: center;
   padding: 40px;
 }
-
-/* Decorative floating glasses in background */
 .product::before,
 .product::after {
   content: "";
@@ -688,8 +586,6 @@ nav a:focus {
   left: 0;
   pointer-events: none;
 }
-
-/* First layer (furthest back) - largest glasses */
 .product::before {
   background: url("IMG/Glass.png") -10% 5% / 900px no-repeat,
     url("IMG/Glass.png") 110% 15% / 1000px no-repeat,
@@ -702,8 +598,6 @@ nav a:focus {
   animation: float-back 30s ease-in-out infinite;
   z-index: 1;
 }
-
-/* Second layer - medium glasses */
 .product::after {
   background: url("IMG/Glass.png") 15% 10% / 400px no-repeat,
     url("IMG/Glass.png") 85% 5% / 350px no-repeat,
@@ -721,8 +615,6 @@ nav a:focus {
   transform: rotate(-5deg);
   z-index: 1;
 }
-
-/* Third layer - smaller glasses */
 .product .glasses-small {
   content: "";
   position: absolute;
@@ -744,8 +636,6 @@ nav a:focus {
   z-index: 1;
   pointer-events: none;
 }
-
-/* Updated animations with more movement */
 @keyframes float-back {
   0%,
   100% {
@@ -761,7 +651,6 @@ nav a:focus {
     transform: translate(30px, 15px) rotate(2deg) scale(1.02);
   }
 }
-
 @keyframes float-middle {
   0%,
   100% {
@@ -774,7 +663,6 @@ nav a:focus {
     transform: translate(-20px, 15px) rotate(-7deg) scale(0.98);
   }
 }
-
 @keyframes float-front {
   0%,
   100% {
@@ -793,7 +681,6 @@ nav a:focus {
     transform: translate(15px, 5px) rotate(-2deg) scale(0.98);
   }
 }
-
 .timeline-section {
   width: 100vw;
   padding: 80px 0 60px 0;
@@ -803,10 +690,9 @@ nav a:focus {
   align-items: center;
   position: relative;
 }
-
 .timeline-heading {
   font-size: 3.5vw;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: 800 !important;
   color: #fff;
   letter-spacing: 0.08em;
@@ -818,7 +704,6 @@ nav a:focus {
     0 0 40px rgba(0, 150, 255, 0.45), 0 0 80px rgba(255, 255, 255, 0.25);
   animation: glow 2s ease-in-out infinite alternate;
 }
-
 .timeline {
   position: relative;
   width: 90vw;
@@ -826,7 +711,6 @@ nav a:focus {
   margin: 0 auto;
   padding: 40px 0;
 }
-
 .timeline::before {
   content: "";
   position: absolute;
@@ -840,7 +724,6 @@ nav a:focus {
   z-index: 0;
   opacity: 0.7;
 }
-
 .timeline-item {
   position: relative;
   width: 100%;
@@ -850,11 +733,9 @@ nav a:focus {
   margin-bottom: 90px;
   min-height: 180px;
 }
-
 .timeline-item:nth-child(even) {
   flex-direction: row-reverse;
 }
-
 .timeline-dot {
   position: absolute !important;
   left: 50%;
@@ -868,7 +749,6 @@ nav a:focus {
   z-index: 2;
   box-shadow: 0 0 24px #00c6ff77;
 }
-
 .timeline-content {
   background: rgba(9, 75, 141, 0.445);
   backdrop-filter: blur(14px);
@@ -883,56 +763,44 @@ nav a:focus {
   margin-right: 0;
   z-index: 2;
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1.35rem;
-  /* Displace timeline-content to the left or right for zig-zag effect */
   transform: translateX(-40px);
-  /* Add glowing effects */
   box-shadow: 0 0 20px rgba(0, 150, 255, 0.15), 0 0 40px rgba(0, 150, 255, 0.1),
     inset 0 0 20px rgba(0, 150, 255, 0.1);
   border: 1px solid rgba(0, 150, 255, 0.2);
   animation: timelineGlow 4s ease-in-out infinite alternate;
 }
-
 .timeline-item:nth-child(even) .timeline-content {
   margin-left: 0;
   margin-right: 90px;
   text-align: right;
-  /* Add displacement for even items */
   transform: translateX(40%);
 }
-
 .timeline-item:nth-child(odd) .timeline-content {
   margin-left: 90px;
   margin-right: 0;
   text-align: left;
-  /* Add displacement for odd items */
   transform: translateX(-40%);
 }
-
 .timeline-item:nth-child(even) {
   margin-left: 0 !important;
   margin-right: 90px !important;
   text-align: right !important;
-  /* Add displacement for even items */
 }
-
 .timeline-content h2 {
   margin: 0 0 18px 0;
   font-size: 30px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: bold;
   color: #00c6ff;
 }
-
 .timeline-content p {
   margin: 0;
   font-size: 1.25rem;
   color: #fff;
   line-height: 1.7;
 }
-
-/* Responsive adjustments */
 @media (max-width: 900px) {
   .timeline {
     width: 98vw;
@@ -945,7 +813,6 @@ nav a:focus {
     min-width: 0;
     padding: 28px 10px;
     font-size: 1.1rem;
-    /* Remove displacement for stacking */
     margin-left: 60px;
     margin-right: 0;
     text-align: left;
@@ -970,12 +837,10 @@ nav a:focus {
     left: 18px;
     transform: none;
   }
-
   .team-heading {
     font-size: 20vw !important;
   }
 }
-
 .team {
   width: 100%;
   padding: 80px 0 60px 0;
@@ -986,7 +851,6 @@ nav a:focus {
   position: relative;
   background-color: black;
 }
-
 .team-heading {
   font-size: 8vw;
   font-family: "Extenda Hecto Trial", sans-serif;
@@ -997,7 +861,6 @@ nav a:focus {
   font-weight: normal;
   z-index: 2;
 }
-
 .team-members {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1008,7 +871,6 @@ nav a:focus {
   max-width: 900px;
   margin: 0 auto;
 }
-
 .team-member {
   display: flex;
   flex-direction: column;
@@ -1016,7 +878,6 @@ nav a:focus {
   width: 100%;
   margin-bottom: 32px;
 }
-
 .team-photo {
   width: 220px;
   height: 220px;
@@ -1027,9 +888,8 @@ nav a:focus {
   background: #222;
   margin-bottom: 24px;
 }
-
 .team-name {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 2.1rem;
   color: #ffffff;
   text-align: center;
@@ -1037,20 +897,16 @@ nav a:focus {
   letter-spacing: 0.04em;
   margin-top: 0;
 }
-
 .web-dev {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 10px;
 }
-
-/* Responsive adjustments */
 @media (max-width: 1000px) {
   .timeline {
     width: 98vw;
     max-width: 98vw;
     padding: 20px 0;
   }
-
   .timeline-content {
     width: 90vw;
     max-width: 98vw;
@@ -1079,7 +935,6 @@ nav a:focus {
     transform: none;
   }
 }
-
 @media (max-width: 1000px) {
   .timeline-content {
     padding: 18px 4vw;
@@ -1096,8 +951,6 @@ nav a:focus {
     left: 10px;
   }
 }
-
-/* First ensure all content has proper z-index */
 .product-h1,
 .product-div,
 .timeline-section,
@@ -1107,14 +960,10 @@ nav a:focus {
   position: relative;
   z-index: 10;
 }
-
-/* Background layers need lower z-index values */
 .product::before,
 .product::after {
   z-index: 1;
 }
-
-/* Third layer of glasses (currently conflicting with first layer) needs unique name */
 .product .glasses-small {
   content: "";
   position: absolute;
@@ -1136,14 +985,10 @@ nav a:focus {
   z-index: 1;
   pointer-events: none;
 }
-
-/* Update product section to include the new layer */
 .product {
   position: relative;
-  isolation: isolate; /* Creates stacking context */
+  isolation: isolate;
 }
-
-/* Ensure media queries maintain z-index hierarchy */
 @media (max-width: 1000px) {
   .product-h1,
   .product-div,
@@ -1152,14 +997,12 @@ nav a:focus {
   .timeline-dot {
     z-index: 10;
   }
-
   .product::before,
   .product::after,
   .product .glasses-small {
     z-index: 1;
   }
 }
-
 @keyframes glow {
   from {
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.9),
@@ -1170,7 +1013,6 @@ nav a:focus {
       0 0 50px rgba(0, 150, 255, 0.6), 0 0 90px rgba(0, 150, 255, 0.4);
   }
 }
-
 @keyframes imgGlow {
   from {
     filter: drop-shadow(0 0 25px rgba(0, 150, 255, 0.4))
@@ -1185,7 +1027,6 @@ nav a:focus {
     opacity: 85%;
   }
 }
-
 @keyframes divGlow {
   from {
     box-shadow: 0 0 20px rgba(0, 150, 255, 0.2), 0 0 40px rgba(0, 150, 255, 0.1),
@@ -1196,8 +1037,6 @@ nav a:focus {
       inset 0 0 30px rgba(0, 150, 255, 0.2);
   }
 }
-
-/* Pulse animation for promo-brand to draw subtle attention */
 @keyframes promoPulse {
   0% {
     transform: scale(1);
@@ -1212,8 +1051,6 @@ nav a:focus {
     box-shadow: 0 8px 28px rgba(251, 255, 0, 0.6);
   }
 }
-
-/* CONTACT - Instagram only */
 .contact-instagram {
   width: 100%;
   display: flex;
@@ -1221,7 +1058,7 @@ nav a:focus {
   align-items: center;
   padding: 48px 0 72px 0;
   position: relative;
-  z-index: 12; /* above product background layers */
+  z-index: 12;
   background: linear-gradient(180deg, #000000 0%, #153bb3 100%);
 }
 .contact-instagram .contact-inner {
@@ -1249,8 +1086,8 @@ nav a:focus {
   width: 120px;
   height: 120px;
   display: block;
-  border-radius: 50%; /* perfect circle */
-  overflow: hidden; /* clip svg into circle */
+  border-radius: 50%;
+  overflow: hidden;
   box-shadow: 0 8px 40px rgba(0, 150, 255, 0.18),
     0 0 80px rgba(0, 150, 255, 0.06);
   transition: transform 220ms ease, box-shadow 220ms ease;
@@ -1263,7 +1100,7 @@ nav a:focus {
 }
 .ig-handle {
   margin-top: 12px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
@@ -1272,14 +1109,12 @@ nav a:focus {
 }
 .ig-desc {
   color: rgba(255, 255, 255, 0.9);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1rem;
   text-align: center;
   max-width: 720px;
   margin: 0;
 }
-
-/* Shop modal (mobile): simple, accessible overlay used when SHOP is tapped on phones */
 .shop-modal {
   position: fixed;
   inset: 0;
@@ -1287,7 +1122,7 @@ nav a:focus {
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 620; /* above nav */
+  z-index: 620;
   opacity: 0;
   visibility: hidden;
   transition: opacity 180ms ease, visibility 180ms ease;
@@ -1308,12 +1143,12 @@ nav a:focus {
 }
 .shop-modal h2 {
   margin: 6px 0 8px 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1.6rem;
   color: #fff;
 }
 .shop-modal p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   margin: 0 0 12px 0;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.98rem;
@@ -1340,7 +1175,6 @@ nav a:focus {
   font-weight: 700;
   cursor: pointer;
 }
-
 @media (max-width: 1000px) {
   .ig-icon {
     width: 92px;
@@ -1352,8 +1186,6 @@ nav a:focus {
     padding: 20px;
   }
 }
-
-/* Promo section: left image holder + right promo text */
 .buying {
   width: 100%;
   padding: 64px 6%;
@@ -1383,7 +1215,7 @@ nav a:focus {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  font-family: "montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: normal;
   font-size: 8vw;
   color: #fff;
@@ -1447,7 +1279,7 @@ nav a:focus {
   text-align: center;
 }
 .buy-info h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   margin: 8px 0;
   font-size: 1.6rem;
   color: #fff;
@@ -1460,12 +1292,12 @@ nav a:focus {
   justify-content: center;
 }
 .price {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   color: #bff1ff;
   font-size: 1.05rem;
 }
 .buy-btn {
-  font-family: "montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 20px;
   background: #00c6ff;
   border: none;
@@ -1481,8 +1313,6 @@ nav a:focus {
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(0, 198, 255, 0.18);
 }
-
-/* Card glow keyframes */
 @keyframes cardGlow {
   from {
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 198, 255, 0.12),
@@ -1498,7 +1328,6 @@ nav a:focus {
     filter: brightness(1.05);
   }
 }
-
 @media (max-width: 1100px) {
   .buying-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1518,14 +1347,13 @@ nav a:focus {
     text-align: center;
   }
 }
-
 .promo {
   width: 100%;
   padding: 56px 6%;
   background-color: black;
   color: #fff;
   position: relative;
-  z-index: 12; /* above floating product backgrounds */
+  z-index: 12;
   isolation: isolate;
 }
 .promo-inner {
@@ -1552,7 +1380,7 @@ nav a:focus {
   max-width: 520px;
 }
 .image-card h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-size: 1.05rem;
   color: #333;
   margin-bottom: 10px;
@@ -1564,7 +1392,7 @@ nav a:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 360px; /* sample holder height to match the mock */
+  min-height: 360px;
   overflow: hidden;
 }
 .order-sample img {
@@ -1585,18 +1413,15 @@ nav a:focus {
   border-radius: 6px;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
   transform-origin: center center;
-  /* subtle attention-grabbing scale pulse */
   animation: promoPulse 3.6s ease-in-out infinite;
   will-change: transform;
 }
-
 .promo-brand:hover {
-  /* Slightly stronger shadow on hover without fighting the pulse animation */
   box-shadow: 0 14px 50px rgba(0, 198, 255, 0.18);
 }
 .promo-right h1 {
   margin: 18px 0 8px 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: 900;
   font-size: 4rem;
   line-height: 0.88;
@@ -1606,7 +1431,7 @@ nav a:focus {
   text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 .promo-right h2:nth-child(1) {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
   margin-bottom: 22px;
@@ -1625,9 +1450,8 @@ nav a:focus {
 .promo-note {
   margin-top: 14px;
   opacity: 0.92;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Proxima", sans-serif;
 }
-
 @media (max-width: 1000px) {
   .promo-inner {
     flex-direction: column-reverse;
@@ -1643,7 +1467,6 @@ nav a:focus {
     width: 160px;
   }
 }
-
 @media (max-width: 1000px) {
   .home h1 {
     font-size: 36vw;
@@ -1651,7 +1474,6 @@ nav a:focus {
   .school {
     bottom: 0;
   }
-
   .logo {
     width: 100%;
     margin-top: 20%;
@@ -1660,34 +1482,25 @@ nav a:focus {
     font-size: 20px;
     margin-top: 40%;
   }
-
   .about-content::before {
-    height: auto; /* allow the pseudo-overlay to size to content on small screens */
+    height: auto;
     min-height: auto;
   }
-
   .about h1:nth-child(1) {
     font-size: 30vw;
     margin-top: 2%;
   }
-
   .about-content p {
     font-size: 20px;
   }
-
   .info-row {
     flex-direction: column;
   }
-
   .problems-heading {
     font-size: 38vw;
   }
 }
-
-/* Small-screen overrides: let sections grow with their content instead of forcing full-viewport height */
 @media (max-width: 900px) {
-  /* Sections that previously used 100vh or min-height:100vh should size to their content on small screens */
-
   .about,
   .problem,
   .product,
@@ -1697,29 +1510,19 @@ nav a:focus {
     height: auto !important;
     min-height: auto !important;
   }
-
   .buying {
     display: none;
   }
-
-  /* Ensure overlay pseudo-elements don't force large fixed heights */
   .about::before,
   .about.expanded::before,
   .problem::before {
     height: auto !important;
   }
-
-  /* If any section relied on 100vh spacing for top offset, preserve padding instead */
   .home {
-    padding-top: 84px; /* keep navbar offset on small screens */
+    padding-top: 84px;
   }
 }
-
-/* Consolidated small-screen media query: grouped responsive rules
-   Moved here and set to max-width: 800px so all small-screen rules are together.
-   This block is intentionally placed at the end so it takes precedence. */
 @media (max-width: 1000px) {
-  /* Navigation / mobile menu */
   .nav-toggle {
     display: block;
   }
@@ -1767,8 +1570,6 @@ nav a:focus {
     width: 100%;
     max-width: 420px;
   }
-
-  /* Problems: stack and center the cards */
   .problem-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1789,8 +1590,6 @@ nav a:focus {
   .problems-heading {
     font-size: 38vw;
   }
-
-  /* Buying/product grid adjustments */
   .buying-grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1804,8 +1603,6 @@ nav a:focus {
   .buying-heading {
     text-align: center;
   }
-
-  /* Promo stacking */
   .promo-inner {
     flex-direction: column-reverse;
     gap: 18px;
@@ -1819,8 +1616,6 @@ nav a:focus {
   .promo-brand {
     width: 160px;
   }
-
-  /* Contact Instagram smaller icon */
   .ig-icon {
     width: 92px;
     height: 92px;
@@ -1830,8 +1625,6 @@ nav a:focus {
   .contact-instagram .contact-inner {
     padding: 20px;
   }
-
-  /* Home and about adjustments */
   .home h1 {
     font-size: 36vw;
   }
@@ -1839,44 +1632,38 @@ nav a:focus {
     font-size: 20px;
     margin-top: 40%;
   }
-
   .about-content::before {
     height: auto;
     min-height: auto;
   }
-
   .product-h1 {
     position: absolute;
     font-size: 38vw;
     margin-top: 12%;
     z-index: 100;
   }
-
   .product-div {
     margin-top: 40%;
     width: 90vw;
   }
-
-  /* Collapsible product summary: show a short preview and a read-more button */
   .product-div {
     position: relative;
     overflow: visible;
   }
   .product-summary {
-    max-height: 220px; /* collapsed preview height */
+    max-height: 220px;
     overflow: hidden;
     transition: max-height 360ms ease;
     position: relative;
-    padding-bottom: 88px; /* reserve space for the toggle button so text doesn't underlap it */
+    padding-bottom: 88px;
   }
-  /* soft fade at the bottom so user knows there's more */
   .product-div::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0; /* cover the very bottom of the summary so the text fades out */
-    height: 96px; /* tall enough to fully fade the last lines and keep the button visible */
+    bottom: 0;
+    height: 96px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
     pointer-events: none;
     border-radius: 0 0 20px 20px;
@@ -1888,32 +1675,29 @@ nav a:focus {
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    bottom: 16px; /* slightly higher so it sits above the fade */
+    bottom: 16px;
     z-index: 10;
     background: #00c6ff;
     color: #04142b;
     border: none;
     padding: 8px 18px;
     border-radius: 8px 8px 20px 20px;
-    font-family: "montserrat", sans-serif;
+    font-family: "Proxima", sans-serif;
     font-weight: 600;
     font-size: 12px;
     cursor: pointer;
     box-shadow: 0 8px 28px rgba(0, 198, 255, 0.18);
   }
   .product-div.expanded .product-summary {
-    max-height: 2000px; /* large enough to show the entire content */
+    max-height: 2000px;
   }
   .product-div.expanded::after {
     opacity: 0;
     visibility: hidden;
   }
-
-  /* Timeline stacking and minor size tweaks */
   .timeline-heading {
     font-size: 10vw;
   }
-
   .timeline {
     width: 98vw;
     max-width: 98vw;
@@ -1930,11 +1714,9 @@ nav a:focus {
     text-align: left;
     transform: none;
   }
-
   .timeline-item,
   .timeline-item:nth-child(even) {
     flex-direction: column;
-    /* align-items: flex-start; */
     transform: translateX(0) !important;
   }
   .timeline-dot {
@@ -1946,8 +1728,6 @@ nav a:focus {
     left: 18px;
     transform: none;
   }
-
-  /* Additional small adjustments */
   .timeline-content {
     padding: 18px 4vw;
     font-size: 1rem;
@@ -1962,18 +1742,13 @@ nav a:focus {
     width: 4px;
     left: 10px;
   }
-
-  /* Product section: avoid forcing large min-heights on small screens */
   .product {
     min-height: auto !important;
     height: auto !important;
   }
-
-  /* Keep navbar offset for content */
   .home {
     padding-top: 84px;
   }
-
   .promo-code {
     font-size: 10vw !important;
   }
