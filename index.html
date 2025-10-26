@@ -15,28 +15,20 @@
       data-aos-easing="linear"
       data-aos-duration="1200"
     >
-      <button class="nav-toggle" aria-label="Open navigation">
+      <button
+        class="nav-toggle"
+        aria-label="Open navigation"
+        aria-controls="main-nav"
+      >
         <span></span>
       </button>
-      <ul>
-        <li><a href="">HOME</a></li>
-        <li><a href="">PRODUCT</a></li>
-        <li><a href="">TEAM</a></li>
-        <li><a href="">CONTACT</a></li>
+      <ul id="main-nav">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#product">PRODUCT</a></li>
+        <li><a href="#team">TEAM</a></li>
       </ul>
     </nav>
-    <script>
-      // Hamburger menu toggle for mobile
-      document.querySelector(".nav-toggle").onclick = function () {
-        document.querySelector(".navbar ul").classList.toggle("open");
-      };
-      // Optional: close menu when clicking a link (mobile UX)
-      document.querySelectorAll(".navbar ul a").forEach(function (link) {
-        link.onclick = function () {
-          document.querySelector(".navbar ul").classList.remove("open");
-        };
-      });
-    </script>
     <section class="home">
       <img
         src="IMG/Logo.png"
@@ -59,8 +51,8 @@
       </h2>
     </section>
 
-    <section class="about">
-      <h1 data-aos="fade-up" data-aos-duration="600">PRODUCT</h1>
+    <section class="about" id="about">
+      <h1 data-aos="fade-up" data-aos-duration="600">ABOUT</h1>
       <div class="about-content" data-aos="fade-up" data-aos-dure="600">
         <p>
           Opticious Glasses are AI-powered, sustainable smart glasses designed
@@ -105,7 +97,7 @@
       <img src="IMG/Glass.png" alt="" />
     </section>
 
-    <section class="problem">
+    <section class="problem" id="problem">
       <div class="problem-grid">
         <div
           class="problem-content problem-1"
@@ -182,24 +174,33 @@
         PROBLEMS
       </h1>
     </section>
-    <section class="product">
+    <section class="product" id="product">
       <div class="glasses-small"></div>
       <h1 class="product-h1" data-aos="fade-up">PRODUCT</h1>
       <img src="IMG/Glass.png" alt="" class="product-img" />
       <div class="product-div" data-aos="fade-up" data-aos-duration="600">
-        <p>
-          Opticious Glasses are AI-powered smart eyewear that automatically
-          adjust their lenses in real time to correct vision and help naturally
-          improve eyesight within months. Connected to the Opticious App via
-          Bluetooth, they track eye health, screen time, and habits while
-          offering personalized improvement plans. Built with adaptive fiber
-          lenses, sustainable biodegradable frames, and long-lasting lithium
-          batteries, they combine innovation with eco-friendliness. The glasses
-          include features like blue light and UV protection, an AI custom frame
-          builder for personalized design, a 24×7 virtual eye-care assistant,
-          and real-time cloud-based vision monitoring — delivering comfort,
-          intelligence, and style in one pair.
-        </p>
+        <div id="productSummary" class="product-summary">
+          <p>
+            Opticious Glasses are AI-powered smart eyewear that automatically
+            adjust their lenses in real time to correct vision and help
+            naturally improve eyesight within months. Connected to the Opticious
+            App via Bluetooth, they track eye health, screen time, and habits
+            while offering personalized improvement plans. Built with adaptive
+            fiber lenses, sustainable biodegradable frames, and long-lasting
+            lithium batteries, they combine innovation with eco-friendliness.
+            The glasses include features like blue light and UV protection, an
+            AI custom frame builder for personalized design, a 24×7 virtual
+            eye-care assistant, and real-time cloud-based vision monitoring —
+            delivering comfort, intelligence, and style in one pair.
+          </p>
+        </div>
+        <button
+          class="product-toggle"
+          aria-expanded="false"
+          aria-controls="productSummary"
+        >
+          Read more
+        </button>
       </div>
       <!-- Timeline Section -->
       <section class="timeline-section">
@@ -360,7 +361,7 @@
       </div>
     </section>
 
-    <section class="team">
+    <section class="team" id="team">
       <h1 class="team-heading" data-aos="fade-up" data-aos-duration="400">
         OUR TEAM
       </h1>
@@ -492,6 +493,7 @@
       </div>
     </section>
 
+    <script src="script.js" defer></script>
     <script>
       AOS.init();
     </script>
