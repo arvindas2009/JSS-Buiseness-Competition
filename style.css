@@ -15,7 +15,7 @@ body {
   max-width: none;
   box-sizing: border-box;
 }
-@import url("https://fonts.googleapis.com/css2?family=Proxima:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @font-face {
   font-family: "Extenda Hecto Trial";
   src: url("FONT/Extenda-40-Hecto-trial.ttf") format("truetype");
@@ -23,8 +23,9 @@ body {
   font-style: normal;
 }
 @font-face {
-  font-family: "Proxima";
-  src: url("FONT/proximanova_regular.ttf") format("truetype") format("opentype");
+  font-family: "Montserrat";
+  src: url("FONT/Montserratnova_regular.ttf") format("truetype")
+    format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -83,7 +84,7 @@ body {
 }
 .home h2 {
   position: absolute;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 40px;
   font-weight: 600;
   color: white;
@@ -126,7 +127,7 @@ nav li {
 nav a {
   color: #fff;
   text-decoration: none;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 1px;
@@ -315,7 +316,7 @@ nav a:focus {
   user-select: none;
   color: rgba(255, 255, 255, 0.08);
   font-weight: 700;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   white-space: nowrap;
   font-size: 18vw;
   line-height: 1;
@@ -414,7 +415,7 @@ nav a:focus {
   transition: background 0.2s;
   box-sizing: border-box;
   min-width: 0;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -485,7 +486,7 @@ nav a:focus {
   width: 80vw;
 }
 .about-content p {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: white;
   z-index: 10;
   font-size: 24px;
@@ -511,12 +512,12 @@ nav a:focus {
 }
 .info-box h3 {
   margin: 0 0 1vh 0;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 3vh;
 }
 .info-box p {
   margin: 0;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.95);
@@ -570,7 +571,7 @@ nav a:focus {
   animation: divGlow 4s ease-in-out infinite alternate;
 }
 .product-div p {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: white;
   text-align: center;
@@ -692,7 +693,7 @@ nav a:focus {
 }
 .timeline-heading {
   font-size: 3.5vw;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800 !important;
   color: #fff;
   letter-spacing: 0.08em;
@@ -763,7 +764,7 @@ nav a:focus {
   margin-right: 0;
   z-index: 2;
   position: relative;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.35rem;
   transform: translateX(-40px);
   box-shadow: 0 0 20px rgba(0, 150, 255, 0.15), 0 0 40px rgba(0, 150, 255, 0.1),
@@ -791,7 +792,7 @@ nav a:focus {
 .timeline-content h2 {
   margin: 0 0 18px 0;
   font-size: 30px;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bold;
   color: #00c6ff;
 }
@@ -889,7 +890,7 @@ nav a:focus {
   margin-bottom: 24px;
 }
 .team-name {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 2.1rem;
   color: #ffffff;
   text-align: center;
@@ -898,7 +899,7 @@ nav a:focus {
   margin-top: 0;
 }
 .web-dev {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 10px;
 }
 @media (max-width: 1000px) {
@@ -1100,7 +1101,7 @@ nav a:focus {
 }
 .ig-handle {
   margin-top: 12px;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
@@ -1109,7 +1110,7 @@ nav a:focus {
 }
 .ig-desc {
   color: rgba(255, 255, 255, 0.9);
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   text-align: center;
   max-width: 720px;
@@ -1143,12 +1144,12 @@ nav a:focus {
 }
 .shop-modal h2 {
   margin: 6px 0 8px 0;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.6rem;
   color: #fff;
 }
 .shop-modal p {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0 0 12px 0;
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.98rem;
@@ -1215,7 +1216,7 @@ nav a:focus {
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: normal;
   font-size: 8vw;
   color: #fff;
@@ -1279,7 +1280,7 @@ nav a:focus {
   text-align: center;
 }
 .buy-info h3 {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 8px 0;
   font-size: 1.6rem;
   color: #fff;
@@ -1292,12 +1293,12 @@ nav a:focus {
   justify-content: center;
 }
 .price {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #bff1ff;
   font-size: 1.05rem;
 }
 .buy-btn {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   background: #00c6ff;
   border: none;
@@ -1380,7 +1381,7 @@ nav a:focus {
   max-width: 520px;
 }
 .image-card h3 {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.05rem;
   color: #333;
   margin-bottom: 10px;
@@ -1421,7 +1422,7 @@ nav a:focus {
 }
 .promo-right h1 {
   margin: 18px 0 8px 0;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 4rem;
   line-height: 0.88;
@@ -1431,7 +1432,7 @@ nav a:focus {
   text-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 }
 .promo-right h2:nth-child(1) {
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
   margin-bottom: 22px;
@@ -1450,7 +1451,7 @@ nav a:focus {
 .promo-note {
   margin-top: 14px;
   opacity: 0.92;
-  font-family: "Proxima", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 @media (max-width: 1000px) {
   .promo-inner {
@@ -1682,7 +1683,7 @@ nav a:focus {
     border: none;
     padding: 8px 18px;
     border-radius: 8px 8px 20px 20px;
-    font-family: "Proxima", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
     font-size: 12px;
     cursor: pointer;
